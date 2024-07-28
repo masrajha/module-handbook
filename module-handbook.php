@@ -3,7 +3,7 @@
 Plugin Name: Module Handbook
 Description: Menampilkan data mata kuliah dan detail mata kuliah.
 Version: 1.0
-Author: Nama Anda
+Author: Didik Kurniawan
 */
 
 if (!defined('ABSPATH')) {
