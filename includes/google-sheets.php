@@ -4,7 +4,7 @@ require plugin_dir_path(__FILE__) . '../vendor/autoload.php';
 use Google\Client;
 use Google\Service\Sheets;
 
-$pathToJson = plugin_dir_path(__FILE__) . 'storied-precept-243308-adf6b0bb18cb.json';
+$pathToJson = plugin_dir_path(__FILE__) . '../storied-precept-243308-adf6b0bb18cb.json';
 $spreadsheetId = '1HOkLicWIffmT7UxTqd2XNWKz5CmCLL5Ue9gO9rq5iBA';
 
 function initialize_sheets_service() {
