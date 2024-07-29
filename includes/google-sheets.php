@@ -61,11 +61,11 @@ function get_courses() {
                     $credits = htmlspecialchars($row[9][0], ENT_QUOTES, 'UTF-8');
                     $ects = number_format(1.6 * $credits, 1);
                     $output .= '<tr>
-                                    <td>' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '</td>
+                                    <td  class="fit-content">' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '</td>
                                     <td>' . htmlspecialchars($row[1], ENT_QUOTES, 'UTF-8') . '</td>
-                                    <td>' . $credits . '</td>
-                                    <td>' . $ects . '</td>
-                                    <td>
+                                    <td  class="fit-content">' . $credits . '</td>
+                                    <td  class="fit-content">' . $ects . '</td>
+                                    <td  class="fit-content">
                                         <a href="?code=' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '" class="btn btn-outline-info btn-sm mr-2"><i class="bi bi-book" title="Module Handbook"></i></a>
                                         <a href="?code=' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '&view=practice" class="btn btn-outline-success btn-sm mr-2"><i class="bi bi-clipboard" title="Practice Instruction"></i></a>
                                         <a href="?code=' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '&view=project" class="btn btn-outline-warning btn-sm mr-2"><i class="bi bi-briefcase" title="Project Instruction"></i></a>
