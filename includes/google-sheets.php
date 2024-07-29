@@ -261,7 +261,7 @@ function get_course_detail($code) {
         } else {
             $output = '<div class="warning">Data is not found!</div>';
         }
-
+        $output .= add_navigation($code);
         return $output;
 
     } catch (Exception $e) {
@@ -323,7 +323,7 @@ function get_practice($code) {
         } else {
             $output = '<div class="warning">Data is not found or this course does not have a practice!</div>';
         }
-
+        $output .= add_navigation($code);
         return $output;
 
     } catch (Exception $e) {
@@ -392,7 +392,7 @@ function get_project($code) {
         } else {
             $output = '<div class="warning">Data is not found or this course does not have a project!</div>';
         }
-
+        $output .= add_navigation($code);
         return $output;
 
     } catch (Exception $e) {
@@ -495,9 +495,25 @@ function get_quiz($code) {
             $output = '<div class="warning">Data is not found!</div>';
         }
 
+        $output .= add_navigation($code);
         return $output;
 
     } catch (Exception $e) {
         return 'Caught exception: ' . $e->getMessage();
     }
+}
+function add_navigation($code) {
+    $baseUrl = esc_url(add_query_arg(array('code' => $code), ''));
+
+    $allCoursesUrl = esc_url(remove_query_arg(array('view', 'code')));
+    $practiceUrl = esc_url(add_query_arg(array('code' => $code, 'view' => 'practice'), $baseUrl));
+    $projectUrl = esc_url(add_query_arg(array('code' => $code, 'view' => 'project'), $baseUrl));
+    $quizUrl = esc_url(add_query_arg(array('code' => $code, 'view' => 'quiz'), $baseUrl));
+
+    echo '<div class="mt-4 d-flex justify-content-between">';
+    echo '<a href="' . $allCoursesUrl . '" class="btn btn-primary">All Courses</a>';
+    echo '<a href="' . $practiceUrl . '" class="btn btn-success">Practice</a>';
+    echo '<a href="' . $projectUrl . '" class="btn btn-warning">Project</a>';
+    echo '<a href="' . $quizUrl . '" class="btn btn-danger">Quiz</a>';
+    echo '</div>';
 }
