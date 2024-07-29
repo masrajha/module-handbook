@@ -38,42 +38,51 @@ function get_courses() {
             }
         }
 
+        // Sort the dataByClass array by keys (semesters)
+        ksort($dataByClass);
+
         $output = '';
         if (!empty($dataByClass)) {
             foreach ($dataByClass as $sem => $rows) {
-                $output .= '<br/><h3>Semester ' . htmlspecialchars($sem, ENT_QUOTES, 'UTF-8') . '</h3>';
-                $output .= '<table class="table table-striped">
-                                <thead>
+                $output .= '<div class="semester-section mb-5">';
+                $output .= '<h3 class="text-primary">Semester ' . htmlspecialchars($sem, ENT_QUOTES, 'UTF-8') . '</h3>';
+                $output .= '<table class="table table-striped table-bordered">
+                                <thead class="thead-dark">
                                     <tr>
                                         <th>Code</th>
                                         <th>Course</th>
                                         <th>Credits</th>
+                                        <th>ECTS</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>';
                 foreach ($rows as $row) {
+                    $credits = htmlspecialchars($row[9][0], ENT_QUOTES, 'UTF-8');
+                    $ects = number_format(1.6 * $credits, 1);
                     $output .= '<tr>
                                     <td>' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '</td>
                                     <td>' . htmlspecialchars($row[1], ENT_QUOTES, 'UTF-8') . '</td>
-                                    <td>' . htmlspecialchars($row[9][0], ENT_QUOTES, 'UTF-8') . '</td>
+                                    <td>' . $credits . '</td>
+                                    <td>' . $ects . '</td>
                                     <td>
-                                        <a href="?code=' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '"><i class="bi bi-book" title="Module Handbook"></i></a>
-                                        <a href="?code=' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '&view=practice"><i class="bi bi-clipboard" title="Practice Instruction"></i></a>
-                                        <a href="?code=' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '&view=project"><i class="bi bi-briefcase" title="Project Instruction"></i></a>
-                                        <a href="?code=' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '&view=quiz"><i class="bi bi-question-circle" title="Quiz"></i></a>
+                                        <a href="?code=' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '" class="btn btn-outline-info btn-sm mr-2"><i class="bi bi-book" title="Module Handbook"></i></a>
+                                        <a href="?code=' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '&view=practice" class="btn btn-outline-success btn-sm mr-2"><i class="bi bi-clipboard" title="Practice Instruction"></i></a>
+                                        <a href="?code=' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '&view=project" class="btn btn-outline-warning btn-sm mr-2"><i class="bi bi-briefcase" title="Project Instruction"></i></a>
+                                        <a href="?code=' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '&view=quiz" class="btn btn-outline-danger btn-sm"><i class="bi bi-question-circle" title="Quiz"></i></a>
                                     </td>
                                 </tr>';
                 }
                 $output .= '</tbody></table>';
+                $output .= '</div>';
             }
         } else {
-            $output .= '<div class="warning">Data is not found!</div>';
+            $output .= '<div class="alert alert-warning">Data is not found!</div>';
         }
         return $output;
 
     } catch (Exception $e) {
-        return 'Caught exception: ' . $e->getMessage();
+        return '<div class="alert alert-danger">Caught exception: ' . $e->getMessage() . '</div>';
     }
 }
 

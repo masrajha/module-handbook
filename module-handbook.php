@@ -15,10 +15,13 @@ require_once plugin_dir_path(__FILE__) . 'includes/google-sheets.php';
 
 // Enqueue scripts and styles
 function mh_enqueue_scripts() {
-    wp_enqueue_style('mh-style', plugins_url('assets/style.css', __FILE__));
+    wp_enqueue_style('bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
     wp_enqueue_style('bootstrap-icons', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css');
+    wp_enqueue_style('mh-style', plugins_url('assets/style.css', __FILE__));
+    wp_enqueue_script('bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js', array('jquery'), null, true);
 }
 add_action('wp_enqueue_scripts', 'mh_enqueue_scripts');
+
 
 // Register shortcode to display course data
 function mh_display_courses($atts) {
