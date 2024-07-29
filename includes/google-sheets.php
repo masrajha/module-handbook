@@ -506,7 +506,7 @@ function add_navigation($code) {
     $baseUrl = esc_url(add_query_arg(array('code' => $code), ''));
 
     $allCoursesUrl = esc_url(remove_query_arg(array('view', 'code')));
-    $moduleUrl = esc_url(add_query_arg(array('code' => $code, ''), $baseUrl));
+    $moduleUrl = esc_url(add_query_arg(array('code' => $code), $baseUrl));
     $practiceUrl = esc_url(add_query_arg(array('code' => $code, 'view' => 'practice'), $baseUrl));
     $projectUrl = esc_url(add_query_arg(array('code' => $code, 'view' => 'project'), $baseUrl));
     $quizUrl = esc_url(add_query_arg(array('code' => $code, 'view' => 'quiz'), $baseUrl));
