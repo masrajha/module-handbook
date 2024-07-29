@@ -26,10 +26,10 @@ function mh_display_courses($atts) {
 
     $code = isset($_GET['code']) ? sanitize_text_field($_GET['code']) : '';
     $view = isset($_GET['view']) ? sanitize_text_field($_GET['view']) : '';
-    
-    $atts = shortcode_atts(array('code' => '', 'view' => ''), $atts);
-    $code = sanitize_text_field($atts['code']);
-    $view = sanitize_text_field($atts['view']);
+
+    // $atts = shortcode_atts(array('code' => '', 'view' => ''), $atts);
+    // $code = sanitize_text_field($atts['code']);
+    // $view = sanitize_text_field($atts['view']);
     
     if ($code && $view == 'quiz') {
         echo get_quiz($code);
