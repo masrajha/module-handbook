@@ -49,11 +49,11 @@ function get_courses() {
                 $output .= '<table class="table table-striped table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th>Code</th>
+                                        <th class="fit-content">Code</th>
                                         <th>Course</th>
-                                        <th>Credits</th>
-                                        <th>ECTS</th>
-                                        <th>Actions</th>
+                                        <th  class="fit-content">Credits</th>
+                                        <th  class="fit-content">ECTS</th>
+                                        <th  class="fit-content">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>';

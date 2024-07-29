@@ -23,3 +23,8 @@ th {
     color: red;
     font-weight: bold;
 }
+.fit-content {
+    width: 1%;
+    white-space: nowrap;
+    text-align: center;
+  }
