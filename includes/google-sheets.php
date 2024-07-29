@@ -506,6 +506,7 @@ function add_navigation($code) {
     $baseUrl = esc_url(add_query_arg(array('code' => $code), ''));
 
     $allCoursesUrl = esc_url(remove_query_arg(array('view', 'code')));
+    $moduleUrl = esc_url(add_query_arg(array('code' => $code, ''), $baseUrl));
     $practiceUrl = esc_url(add_query_arg(array('code' => $code, 'view' => 'practice'), $baseUrl));
     $projectUrl = esc_url(add_query_arg(array('code' => $code, 'view' => 'project'), $baseUrl));
     $quizUrl = esc_url(add_query_arg(array('code' => $code, 'view' => 'quiz'), $baseUrl));
@@ -513,6 +514,7 @@ function add_navigation($code) {
     echo '<table class="table table-borderless mt-4">';
     echo '<tr>';
     echo '<td><a href="' . $allCoursesUrl . '" class="btn btn-primary btn-block">All Courses</a></td>';
+    echo '<td><a href="' . $moduleUrl . '" class="btn btn-info btn-block">Module</a></td>';
     echo '<td><a href="' . $practiceUrl . '" class="btn btn-success btn-block">Practice</a></td>';
     echo '<td><a href="' . $projectUrl . '" class="btn btn-warning btn-block">Project</a></td>';
     echo '<td><a href="' . $quizUrl . '" class="btn btn-danger btn-block">Quiz</a></td>';
