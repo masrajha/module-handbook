@@ -18,7 +18,7 @@ function initialize_sheets_service() {
 
 function get_courses() {
     global $spreadsheetId;
-    $range = 'MODULES-HANDBOOK!A2:T';
+    $range = 'MODULES-HANDBOOK!A2:U';
     $service = initialize_sheets_service();
 
     try {
