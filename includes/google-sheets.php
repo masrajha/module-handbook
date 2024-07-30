@@ -18,7 +18,7 @@ function initialize_sheets_service() {
 
 function get_courses() {
     global $spreadsheetId;
-    $range = 'MODULES-HANDBOOK!A2:U';
+    $range = 'MODULES-HANDBOOK!A2:T';
     $service = initialize_sheets_service();
 
     try {
@@ -60,8 +60,6 @@ function get_courses() {
                 foreach ($rows as $row) {
                     $credits = htmlspecialchars($row[9][0], ENT_QUOTES, 'UTF-8');
                     $ects = number_format(1.6 * $credits, 1);
-                    // $type = ucwords(htmlspecialchars($row[20], ENT_QUOTES, 'UTF-8'));
-                    // $type = ($type=="Optional")?(" (<i>Optional</i>)"):("");
                     $output .= '<tr>
                                     <td  class="fit-content">' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '</td>
                                     <td>' . htmlspecialchars($row[1], ENT_QUOTES, 'UTF-8') . '</td>
@@ -91,7 +89,7 @@ function get_courses() {
 
 function get_course_detail($code) {
     global $spreadsheetId;
-    $range = 'MODULES-HANDBOOK!A2:U';
+    $range = 'MODULES-HANDBOOK!A2:T';
     $service = initialize_sheets_service();
 
     try {
