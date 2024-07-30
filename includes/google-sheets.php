@@ -64,7 +64,7 @@ function get_courses() {
                     // $type = ($type=="Optional")?(" (<i>Optional</i>)"):("");
                     $output .= '<tr>
                                     <td  class="fit-content">' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '</td>
-                                    <td>' . htmlspecialchars($row[1], ENT_QUOTES, 'UTF-8') .$type. '</td>
+                                    <td>' . htmlspecialchars($row[1], ENT_QUOTES, 'UTF-8') . '</td>
                                     <td  class="fit-content">' . $credits . '</td>
                                     <td  class="fit-content">' . $ects . '</td>
                                     <td  class="fit-content">
