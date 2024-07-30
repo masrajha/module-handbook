@@ -60,7 +60,7 @@ function get_courses() {
                 foreach ($rows as $row) {
                     $credits = htmlspecialchars($row[9][0], ENT_QUOTES, 'UTF-8');
                     $ects = number_format(1.6 * $credits, 1);
-                    $type = ucwords(htmlspecialchars($row[20], ENT_QUOTES, 'UTF-8'));
+                    // $type = ucwords(htmlspecialchars($row[20], ENT_QUOTES, 'UTF-8'));
                     // $type = ($type=="Optional")?(" (<i>Optional</i>)"):("");
                     $output .= '<tr>
                                     <td  class="fit-content">' . htmlspecialchars($row[0], ENT_QUOTES, 'UTF-8') . '</td>
@@ -126,7 +126,7 @@ function get_course_detail($code) {
                             </tr>
                             <tr>
                                 <th>Course</th>
-                                <td>' . htmlspecialchars($data[1], ENT_QUOTES, 'UTF-8') . '<i>' . ucwords(htmlspecialchars($data[20], ENT_QUOTES, 'UTF-8')) . '</i>' . '</td>
+                                <td>' . htmlspecialchars($data[1], ENT_QUOTES, 'UTF-8') . '</td>
                             </tr>
                             <tr>
                                 <th>Description</th>
